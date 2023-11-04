@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sing up</title>
+    <link rel="stylesheet" href="/static/hacker/css/reset.css">
+    <link rel="stylesheet" href="/static/hacker/css/registration.css">
+</head>
+<body>
+    <div class="login-page">
+        <div class="form">
+            <form class="register-form" action="{% url 'users:registration' %}" method="post">
+                {% csrf_token %}
+                {{ form.first_name }}
+                {{ form.last_name }}
+                {{ form.username }}
+                {{ form.email }}
+                {{ form.password1 }}
+                {{ form.password2 }}
+                <button>create</button>
+                <p class="message">Already registered? <a href="{% url 'users:login' %}">Sign In</a></p>
+            </form>
+        </div>
+      </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Main</title>
+        <link rel="stylesheet" href="/static/hacker/css/reset.css">
+        <link rel="stylesheet" href="/static/hacker/css/index.css">
+    </head>
+
+    <body>
+        <header>
+            <div class="header">
+                <div class="logo">{{ title }}</div>
+                <div class="search-box">
+                    <input type="text" placeholder="Поиск по сайту">
+                </div>
+                <div>
+                    <section>
+                        <a href="{% url 'users:profile' %}" class="user-button">Profile</a>
+                        <a href="{% url 'users:login' %}" class="user-button">Account</a>
+                        <a href="#" class="user-button">Add lesson</a>
+                    </section>
+                </div>
+            </div>
+        </header>
+
+
+        
+        <div class="main-block">
+            {% for product in products %}
+            <div class="startup-block">
+                <h2><a class="startup-header" href="#">{{ product.title }}</a></h2>
+                <a class="video-link" href="{{ product.video_url }}"><img class="video-link-image" src="{{ product.image.url }}"></a>
+                <p>{{ product.description }}</p>
+            </div>
+            {% endfor %}
+            <div class="site-categories">
+                {% for category in categories %}
+                    <a href="#" class="profile-button">{{ category.title }}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+</html>
