@@ -2,10 +2,15 @@
         background-color: #43A047;
         background: linear-gradient(90deg, rgba(141,194,111,1) 0%, rgba(118,184,82,1) 50%);;
         font-family: Arial, sans-serif;
-   }
+    }
 
     .photo-profile {
         text-align: center;
+        width: 300px;
+        height: 250px;
+        margin-left: 150;
+        margin-right: 0px;
+        margin-bottom: 10px;
     }
 
     .photo-profile img {
@@ -16,7 +21,8 @@
     form {
         background-color: #FFFFFF;
         max-width: 400px;
-        margin: 0 auto;
+        margin-left: 100px;
+        margin-right: 0px;
         padding: 20px;
         box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     }
