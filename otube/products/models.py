@@ -7,7 +7,7 @@ class Product(models.Model):
     image = models.ImageField(upload_to='products_images')
     video_url = models.URLField()
     category = models.ForeignKey('ProductCategory', on_delete=models.PROTECT)
-    # owner = models.ForeignKey('User', on_delete=models.CASCADE)
+    # owner = models.ForeignKey(VideoOwner)
 
     def __str__(self):
         return self.title
