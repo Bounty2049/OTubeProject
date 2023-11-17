@@ -8,6 +8,11 @@
 </head>
 <body>
     <div class="login-page">
+        {% if form.non_field_errors %}
+        <div class="errors-handler" style="margin-top: 50px; margin-bottom: 20px; text-align: center; background-color: rgb(194, 194, 132); color: rgb(255, 255, 0); width: 360px; height: 50px; padding: inherit;"> 
+            {{ form.non_field_errors }}
+        </div>
+        {% endif %}
         <div class="form">
             <form class="login-form" action="{% url 'users:login' %}" method="post">
                 {% csrf_token %}

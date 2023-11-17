@@ -9,6 +9,10 @@
 </head>
 <body>
     <div class="login-page">
+        {% if form.errors %}
+        <div class="errors-handler" style="margin-top: 50px; margin-bottom: 20px; text-align: center; background-color: rgb(194, 194, 132); color: rgb(255, 255, 0); width: 360px;"> 
+            {{ form.errors }}
+        {% endif %}
         <div class="form">
             <form class="register-form" action="{% url 'users:registration' %}" method="post">
                 {% csrf_token %}

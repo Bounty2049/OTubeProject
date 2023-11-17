@@ -16,9 +16,16 @@
                 </div>
                 <div>
                     <section>
-                        <a href="{% url 'users:profile' %}" class="user-button">Profile</a>
-                        <a href="{% url 'users:login' %}" class="user-button">Account</a>
-                        <a href="#" class="user-button">Add lesson</a>
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'users:profile' %}" class="user-button">Profile</a>
+                            <a href="#" class="user-button">Add lesson</a>
+                            <a href="{% url 'users:logout'%}" class="user-button">Logout</a>
+                            {% if user.is_superuser or user.is_staff %}
+                                <a href="{% url 'admin:index' %}" class="user-button">Admin</a>
+                            {% endif %}
+                        {% else %}
+                            <a href="{% url 'users:login' %}" class="user-button">Sign in</a>
+                        {% endif %}
                     </section>
                 </div>
             </div>

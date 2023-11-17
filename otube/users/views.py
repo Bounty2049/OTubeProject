@@ -29,6 +29,7 @@ def registration(request):
         form = UserRegistrationForm(data=request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Congratulations, your successful registered')
             return HttpResponseRedirect(reverse('users:login'))
     else:
         form = UserRegistrationForm()
@@ -47,3 +48,8 @@ def profile(request):
 
     context = {'form': form}
     return render(request, 'users/profile.html', context)
+
+
+def logout(request):
+    auth.logout(request)
+    return HttpResponseRedirect(reverse('index'))

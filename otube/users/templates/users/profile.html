@@ -24,29 +24,31 @@
         </div>
     </header>
     <main>
-        <div class="photo-profile" style="width: 300px; height: 250px; margin-left: 150px; margin-right: 0px; margin-bottom: 5px;">
-            <img src="{% if user.image %} {{ user.image.url }} {% else %} {% static "hacker/images/Blackmonster.jpg" %} {% endif %}" alt="The most sex man in peace">
+        <div class="user-profile-change-form">
+            <div class="photo-profile" style="width: 300px; height: 250px; margin-left: 150px; margin-right: 0px; margin-bottom: 5px;">
+                <img src="{% if user.image %} {{ user.image.url }} {% else %} {% static "hacker/images/Blackmonster.jpg" %} {% endif %}" alt="The most sex man in peace">
+            </div>
+            <form action="{% url 'users:profile' %}" method="post" enctype="multipart/form-data" style="margin-left: 100px; margin-right: 0px;">
+                {% csrf_token %}
+
+                <label for="{{ form.first_name.id_for_label }}">Name:</label>
+                {{ form.first_name }}
+
+                <label for="{{ form.last_name.id_for_label }}">Surname:</label>
+                {{ form.last_name }}
+
+                <label for="{{ form.username.id_for_label }}">Surname:</label>
+                {{ form.username }}
+
+                <label for="{{ form.email.id_for_label }}">Mail:</label>
+                {{ form.email }}
+
+                {{ form.image }} 
+                <label for="{{ form.image.id_for_label }}">Photo:</label>
+
+                <button>Save</button>
+            </form>
         </div>
-        <form action="{% url 'users:profile' %}" method="post" enctype="multipart/form-data" style="margin-left: 100px; margin-right: 0px;">
-            {% csrf_token %}
-
-            <label for="{{ form.first_name.id_for_label }}">Name:</label>
-            {{ form.first_name }}
-
-            <label for="{{ form.last_name.id_for_label }}">Surname:</label>
-            {{ form.last_name }}
-
-            <label for="{{ form.username.id_for_label }}">Surname:</label>
-            {{ form.username }}
-
-            <label for="{{ form.email.id_for_label }}">Mail:</label>
-            {{ form.email }}
-
-            {{ form.image }} 
-            <label for="{{ form.image.id_for_label }}">Photo:</label>
-
-            <button>Save</button>
-           </form>
     </main>
 </body>
 </html>
