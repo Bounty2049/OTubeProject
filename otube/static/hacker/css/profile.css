@@ -6,6 +6,11 @@
 
     .photo-profile {
         text-align: center;
+        width: 300px;
+        height: 250px;
+        margin-left: 150px;
+        margin-right: 0px;
+        margin-bottom: 5px;
     }
 
     .photo-profile img {
@@ -18,6 +23,8 @@
         max-width: 400px;
         padding: 20px;
         box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+        margin-left: 100px;
+        margin-right: 0px;
     }
 
     form input {
@@ -52,8 +59,6 @@
         margin-bottom: 10px;
     }
 
-   
-
     input[type="file"] {
         margin-bottom: 10px;
     }
@@ -65,4 +70,42 @@
         border: none;
         border-radius: 5px;
         cursor: pointer;
+    }
+
+    .user-profile-change-form {
+        width: 540px;
+        float: left;
+    }
+
+    .user-profile-own-product {
+        float: right;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+        width: 600px;
+        margin-right: 500px;
+        margin-top: 20px;
+        padding: 20px;
+    }
+
+    .header-user {
+        margin-left: 100px;
+        margin-bottom: 20px;
+        color: white;
+        font-size: x-large;
+    }
+
+    .header-library {
+        margin-left: 637px;
+        color: white;
+        font-size: x-large;
+    }
+
+    .cr-pr-pr {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }   
+
+    .cr-pr-def {
+        margin-top: 10px;
+        margin-bottom: 10px;
     }

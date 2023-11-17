@@ -25,6 +25,7 @@
     </header>
     <main>
         <div class="user-profile-change-form">
+            <h2 class="header-user">User</h2>
             <div class="photo-profile" style="width: 300px; height: 250px; margin-left: 150px; margin-right: 0px; margin-bottom: 5px;">
                 <img src="{% if user.image %} {{ user.image.url }} {% else %} {% static "hacker/images/Blackmonster.jpg" %} {% endif %}" alt="The most sex man in peace">
             </div>
@@ -48,6 +49,35 @@
 
                 <button>Save</button>
             </form>
+        </div>
+        <h2 class="header-library">Library</h2>
+        <div class="list-library">
+            <ul>
+                <li>
+                    <div class="user-profile-own-product">
+                        <img src="hacker/images/DjangoFw.png" alt="Image of product">
+                        <h3 class="cr-pr-pr">product name</h3>
+                        <p>author</p>
+                        <p class="cr-pr-def">product description</p>
+                    </div>  
+                </li>
+                <li>
+                    <div class="user-profile-own-product">
+                        <img src="hacker/images/DjangoFw.png" alt="Image of product">
+                        <h3 class="cr-pr-pr">product name</h3>
+                        <p>author</p>
+                        <p class="cr-pr-def">product description</p>
+                    </div>  
+                </li>
+                <li>
+                    <div class="user-profile-own-product">
+                        <img src="hacker/images/DjangoFw.png" alt="Image of product">
+                        <h3 class="cr-pr-pr">product name</h3>
+                        <p>author</p>
+                        <p class="cr-pr-def">product description</p>
+                    </div>  
+                </li>
+            </ul>
         </div>
     </main>
 </body>
