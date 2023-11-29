@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static 'hacker/css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'hacker/css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'hacker/css/create.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header">
+            <div class="logo"> {{ title }} </div>
+            <div class="search-box">
+                <input type="text" placeholder="Поиск по сайту">
+            </div>
+            <div>
+                <section>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'users:profile' %}" class="user-button">Profile</a>
+                    <a href="{% url "products:products" %}" class="user-button">Main</a>
+                    <a href="{% url 'users:logout'%}" class="user-button">Logout</a>
+                    {% if user.is_superuser or user.is_staff %}
+                        <a href="{% url 'admin:index' %}" class="user-button">Admin</a>
+                    {% endif %}
+                    {% else %}
+                        <a href="{% url 'users:login' %}" class="user-button">Sign in</a>
+                    {% endif %}
+                </section>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="form">
+            <form action="{% url 'products:create' %}" method="post">
+                {% csrf_token %}
+                {{ form.title }}
+                {{ form.description }}
+                {{ form.preview }}
+                {{ form.video }}
+                {{ form.category }}
+                <button class="user-save">Save</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <section class="footer">
+            <a href="https://t.me/BountY_Con">Telegram</a>
+        </section>
+    </footer>
+</body>
+</html>

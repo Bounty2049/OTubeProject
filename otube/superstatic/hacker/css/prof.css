@@ -1,0 +1,111 @@
+    body {
+        background-color: #43A047;
+        background: linear-gradient(90deg, rgba(141,194,111,1) 0%, rgba(118,184,82,1) 50%);;
+        font-family: Arial, sans-serif;
+    }
+
+    .photo-profile {
+        text-align: center;
+        width: 300px;
+        height: 250px;
+        margin-left: 150px;
+        margin-right: 0px;
+        margin-bottom: 5px;
+    }
+
+    .photo-profile img {
+        width: 300px;
+        height: 250px;
+    }
+
+    form {
+        background-color: #FFFFFF;
+        max-width: 400px;
+        padding: 20px;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+        margin-left: 100px;
+        margin-right: 0px;
+    }
+
+    form input {
+        font-family: "Roboto", sans-serif;
+        outline: 0;
+        background: #f2f2f2;
+        width: 100%;
+        border: 0;
+        margin: 0 0 15px;
+        padding: 15px;
+        box-sizing: border-box;
+        font-size: 14px;
+    }
+
+    form button {
+        font-family: "Roboto", sans-serif;
+        text-transform: uppercase;
+        outline: 0;
+        background: #4CAF50;
+        width: 100%;
+        border: 0;
+        padding: 15px;
+        color: #FFFFFF;
+        font-size: 14px;
+        -webkit-transition: all 0.3 ease;
+        transition: all 0.3 ease;
+        cursor: pointer;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    input[type="file"] {
+        margin-bottom: 10px;
+    }
+
+    input[type="submit"] {
+        background-color: #43A047;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .user-profile-change-form {
+        width: 540px;
+        float: left;
+    }
+
+    .user-profile-own-product {
+        float: right;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+        width: 600px;
+        margin-right: 500px;
+        margin-top: 20px;
+        padding: 20px;
+    }
+
+    .header-user {
+        margin-left: 100px;
+        margin-bottom: 20px;
+        color: white;
+        font-size: x-large;
+    }
+
+    .header-library {
+        margin-left: 637px;
+        color: white;
+        font-size: x-large;
+    }
+
+    .cr-pr-pr {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }   
+
+    .cr-pr-def {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }

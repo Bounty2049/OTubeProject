@@ -7,7 +7,7 @@
     <title>Profile</title>
     <link rel="stylesheet" href="/static/hacker/css/reset.css">
     <link rel="stylesheet" href="/static/hacker/css/index.css">
-    <link rel="stylesheet" href="/static/hacker/css/profile.css">
+    <link rel="stylesheet" href="/static/hacker/css/prof.css">
 </head>
 <body>
     <header>
@@ -18,7 +18,8 @@
             </div>
             <div>
                 <section>
-                    <a href="#" class="user-button">Add lesson</a>
+                    <a href="{% url "products:create" %}" class="user-button">Create lesson</a>
+                    <a href="{% url "products:products" %}" class="user-button">Add lesson</a>
                 </section>
             </div>
         </div>
@@ -51,33 +52,8 @@
             </form>
         </div>
         <h2 class="header-library">Library</h2>
-        <div class="list-library">
-            <ul>
-                <li>
-                    <div class="user-profile-own-product">
-                        <img src="hacker/images/DjangoFw.png" alt="Image of product">
-                        <h3 class="cr-pr-pr">product name</h3>
-                        <p>author</p>
-                        <p class="cr-pr-def">product description</p>
-                    </div>  
-                </li>
-                <li>
-                    <div class="user-profile-own-product">
-                        <img src="hacker/images/DjangoFw.png" alt="Image of product">
-                        <h3 class="cr-pr-pr">product name</h3>
-                        <p>author</p>
-                        <p class="cr-pr-def">product description</p>
-                    </div>  
-                </li>
-                <li>
-                    <div class="user-profile-own-product">
-                        <img src="hacker/images/DjangoFw.png" alt="Image of product">
-                        <h3 class="cr-pr-pr">product name</h3>
-                        <p>author</p>
-                        <p class="cr-pr-def">product description</p>
-                    </div>  
-                </li>
-            </ul>
+        <div class="list-library">    
+            {% include "products/libraries.html" %}
         </div>
     </main>
 </body>

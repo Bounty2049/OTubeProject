@@ -30,8 +30,8 @@ class UserRegistrationForm(UserCreationForm):
 class UserProfileForm(UserChangeForm):
     first_name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Mark'}))
     last_name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Markov'}))
-    username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Gay', 'readonly': True}))
-    email = forms.CharField(widget=forms.EmailInput(attrs={'placeholder': 'Iamgey@gmail.com', 'readonly': True}))
+    username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Mark', 'readonly': True}))
+    email = forms.CharField(widget=forms.EmailInput(attrs={'placeholder': 'umail@gmail.com', 'readonly': True}))
     image = forms.ImageField(widget=forms.FileInput(attrs={'class': 'photo'}), required=False)
 
     class Meta:

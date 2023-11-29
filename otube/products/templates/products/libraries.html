@@ -1,0 +1,17 @@
+{% if libraries %}
+    {% for  library in libraries  %}
+        <ul>
+            <li>
+                <div class="user-profile-own-product">
+                    <img src="{{ library.product.image.url }}" alt="Image of product" href="{{ library.product.video_url }}">
+                    <h3 class="cr-pr-pr" href="{{ library.product.video_url }}"> {{ library.product.title }} </h3>
+                    <p> {{ library.user }} </p>
+                    <p class="cr-pr-def">{{ library.product.description }}</p>
+                    <a class="user-button" href="{% url 'products:delete_library' library.id %}">Delete</a>
+                </div>  
+            </li>
+        </ul>
+    {% endfor %}
+{% else %}
+        <h3 style="color: white; margin-left: 637px; margin-top: 20px;">Have no products</h3>
+{% endif %}

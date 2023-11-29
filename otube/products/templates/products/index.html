@@ -1,12 +1,12 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <title>Main</title>
-        <link rel="stylesheet" href="/static/hacker/css/reset.css">
-        <link rel="stylesheet" href="/static/hacker/css/index.css">
+        <link rel="stylesheet" href="{% static 'hacker/css/reset.css' %}">
+        <link rel="stylesheet" href="{% static 'hacker/css/index.css' %}">
     </head>
-
     <body>
         <header>
             <div class="header">
@@ -18,7 +18,7 @@
                     <section>
                         {% if user.is_authenticated %}
                             <a href="{% url 'users:profile' %}" class="user-button">Profile</a>
-                            <a href="#" class="user-button">Add lesson</a>
+                            <a href="{% url "products:create" %}" class="user-button">Create lesson</a>
                             <a href="{% url 'users:logout'%}" class="user-button">Logout</a>
                             {% if user.is_superuser or user.is_staff %}
                                 <a href="{% url 'admin:index' %}" class="user-button">Admin</a>
@@ -30,22 +30,37 @@
                 </div>
             </div>
         </header>
-
-
-        
-        <div class="main-block">
-            {% for product in products %}
-            <div class="startup-block">
-                <h2><a class="startup-header" href="#">{{ product.title }}</a></h2>
-                <a class="video-link" href="{{ product.video_url }}"><img class="video-link-image" src="{{ product.image.url }}"></a>
-                <p>{{ product.description }}</p>
-            </div>
-            {% endfor %}
-            <div class="site-categories">
-                {% for category in categories %}
-                    <a href="#" class="profile-button">{{ category.title }}</a>
+        <main>
+            <section class="startup-block-total">
+                {% for product in products %}
+                    <ul>
+                        <li>
+                            <div class="startup-block">
+                                <h2>
+                                    <a class="startup-header" href="#">{{ product.title }}</a>
+                                </h2>
+                                <a class="video-link" href="{{ product.video_url }}"><img class="video-link-image" src="{{ product.image.url }}"></a>
+                                <p>{{ product.description }}</p>
+                                <a class="user-button" href="{% url 'products:add_to_library' product.id %}">Add to library</a>
+                            </div>
+                        </li>
+                    </ul>
                 {% endfor %}
-            </div>
-        </div>
+            </section>
+            <section class="nav-side">
+                <div class="site-categories">
+                    {% for category in categories %}
+                        <ul>
+                            <li><a href="#" class="nav-button-categories">{{ category.title }}</a></li>
+                        </ul>
+                    {% endfor %}
+                </div>
+            </section>    
+        </main>
+        <footer>
+            <section class="footer">
+                something
+            </section>
+        </footer>    
     </body>
 </html>

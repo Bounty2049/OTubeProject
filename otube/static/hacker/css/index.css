@@ -11,7 +11,12 @@
 .startup-block {
     border: 1px solid #ddd;
     padding: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+}
+
+.startup-block h2 {
+    font-size: x-large;
+    margin-bottom: 10px;
 }
 
 .startup-block a {
@@ -42,6 +47,20 @@
     cursor: pointer;
 }
 
+.nav-button-categories {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: rgb(192, 216, 238);
+    color: rgb(255, 0, 128);
+    margin-bottom: 10px;
+}
+
 .search-box {
     flex-grow: 1;
     text-align: center;
@@ -51,4 +70,30 @@
     border-radius: 5px;
     padding: 5px;
 
+}
+
+.nav-side {
+    float: left;
+}
+
+.startup-block-total {
+    float: right;
+    margin-right: 50px;
+}
+
+.site-categories {
+    margin-left: 50px;
+    padding: 10px;
+}
+
+.footer {
+    background-color: #f2f2f2;
+    color: black;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    font-size: 19px;
+    font-weight: bold;
+    max-height: 300px;
 }
