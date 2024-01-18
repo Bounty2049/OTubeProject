@@ -39,7 +39,9 @@
                                 <h2>
                                     <a class="startup-header" href="#">{{ product.title }}</a>
                                 </h2>
-                                <a class="video-link" href="{{ product.video_url }}"><img class="video-link-image" src="{{ product.image.url }}"></a>
+                                <video width="400" height="300" controls="control"s poster="{{ product.preview.url }}">
+                                    <source src="{{ product.video.url }}" type='video/webm; codecs="vp8, vorbis"'>
+                                </video>
                                 <p>{{ product.description }}</p>
                                 <a class="user-button" href="{% url 'products:add_to_library' product.id %}">Add to library</a>
                             </div>
@@ -51,7 +53,7 @@
                 <div class="site-categories">
                     {% for category in categories %}
                         <ul>
-                            <li><a href="#" class="nav-button-categories">{{ category.title }}</a></li>
+                            <li><a href="{% url "products:category" category.id %}" class="nav-button-categories">{{ category.title }}</a></li>
                         </ul>
                     {% endfor %}
                 </div>

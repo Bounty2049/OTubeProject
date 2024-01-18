@@ -5,10 +5,10 @@ from users.models import User
 class Product(models.Model):
     title = models.CharField(max_length=128)
     description = models.TextField()
-    image = models.ImageField(upload_to='products_images')
-    video_url = models.FileField(upload_to='products_videos')
+    preview = models.ImageField(upload_to='products_images')
+    video = models.FileField(upload_to='products_videos')
     category = models.ForeignKey('ProductCategory', on_delete=models.PROTECT)
-    # owner = models.ForeignKey(VideoOwner)
+    user = models.ForeignKey(User, verbose_name='User', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
@@ -16,7 +16,6 @@ class Product(models.Model):
 
 class ProductCategory(models.Model):
     title = models.CharField(max_length=32)
-    description = models.TextField(null=True, blank=True)
 
     def __str__(self):
         return self.title

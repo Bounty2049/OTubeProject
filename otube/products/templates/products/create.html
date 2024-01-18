@@ -20,7 +20,7 @@
                 <section>
                     {% if user.is_authenticated %}
                     <a href="{% url 'users:profile' %}" class="user-button">Profile</a>
-                    <a href="{% url "products:products" %}" class="user-button">Main</a>
+                    <a href="{% url 'products:products' %}" class="user-button">Main</a>
                     <a href="{% url 'users:logout'%}" class="user-button">Logout</a>
                     {% if user.is_superuser or user.is_staff %}
                         <a href="{% url 'admin:index' %}" class="user-button">Admin</a>
@@ -34,14 +34,24 @@
     </header>
     <main>
         <section class="form">
-            <form action="{% url 'products:create' %}" method="post">
+            <form action="{% url 'products:create' %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
+                <label for="{{ form.title.id_for_label }}">Title</label>
                 {{ form.title }}
+                
+                <label for="{{ form.description.id_for_label }}">Description</label>
                 {{ form.description }}
+                
+                <label for="{{ form.preview.id_for_preview }}">Image</label>
                 {{ form.preview }}
+                
+                <label for="{{ form.video.id_for_label }}">Video</label>
                 {{ form.video }}
-                {{ form.category }}
-                <button class="user-save">Save</button>
+                <p>
+                    <label for="{{ form.category.id_for_category }}">Category</label>
+                    {{ form.category }}
+                </p>
+                <button class="user-save" placeholder="save">Save</button>
             </form>
         </section>
     </main>

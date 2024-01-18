@@ -2,14 +2,34 @@ from django.shortcuts import render, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from products.models import Product, ProductCategory, Library
 from users.models import User
-from products.forms import UserCreatingLesson
+from products.forms import UserCreationLesson
 from django.urls import reverse
+from rest_framework import generics, viewsets
+from rest_framework.decorators import action
+from rest_framework.response import Response
+from products.serializers import ProductSerializer
 
 
-def index(request):
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+
+    @action(methods=['get'], detail=False)
+    def category(self, request):
+        cats = ProductCategory.objects.all()
+        return Response({'categories': [cat.title for cat in cats]})
+
+
+def index(request, category_id=None):
+    if category_id:
+        products = Product.objects.filter(category_id=category_id)
+    else:
+        products = Product.objects.all()
+
     context = {
         'title': 'OTubeProject',
-        'products': Product.objects.all(),
+        'products': products,
         'categories': ProductCategory.objects.all()
         }
     return render(request, 'products/index.html', context)
@@ -17,25 +37,26 @@ def index(request):
 
 def create(request):
     if request.method == 'POST':
-        form = UserCreatingLesson(data=request.POST)
+        form = UserCreationLesson(data=request.POST, files=request.FILES)
         if form.is_valid():
-            title = request.POST['title']
-            description = request.POST['description']
-            preview = request.POST['preview']
-            video = request.POST['video']
-            category = ProductCategory.objects.get(id=request.POST['category'])
-            new_lesson = Product(title=title, description=description, image=preview, video_url=video, category=category)
-            new_lesson.save()
-            return HttpResponseRedirect(reverse('index'))
+            try:
+                form.save()
+                return HttpResponseRedirect(reverse('index'))
+            except:
+                print(None, 'ERROR')
+            finally:
+                print('Work with form done')
     else:
-        form = UserCreatingLesson()
+        form = UserCreationLesson()
+
 
     context = {
         'title': 'Create Lesson',
         'form': form
     }
 
-    return render(request, 'products/create.html', context)
+    return render(request, 'products/create.html', context=context)
+
 
 @login_required
 def add_to_library(request, product_id):
@@ -48,6 +69,7 @@ def add_to_library(request, product_id):
         print('Already in library')
 
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
+
 
 @login_required
 def delete_library(request, library_id):
