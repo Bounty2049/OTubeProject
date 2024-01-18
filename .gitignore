@@ -1,1 +1,10 @@
-/.idea
+.env
+.idea
+otube/otube/__pycache__
+otube/products/__pycache__
+otube/users/__pycache__
+venv
+otube/db.sqlite3
+otube/media/products_images
+otube/media/products_videos
+otube/media/products_videos
