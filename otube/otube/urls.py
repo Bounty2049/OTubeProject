@@ -20,12 +20,6 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 from products.views import index
-from products.views import ProductViewSet
-
-from rest_framework import routers
-
-router = routers.SimpleRouter()
-router.register(r'product', ProductViewSet)
 
 
 urlpatterns = [
@@ -33,10 +27,6 @@ urlpatterns = [
     path('', index, name='index'),
     path('products/', include('products.urls', namespace='products')),
     path('users/', include('users.urls', namespace='users')),
-    path('api/v2/', include(router.urls)),
-    path('api/v2/drf-auth/', include('rest_framework.urls'))
-    # path('api/v1/productlist/', ProductViewSet.as_view({'get': 'list'})),
-    # path('api/v1/productlist/<int:pk>/', ProductViewSet.as_view({'put': 'update'})),
 ]
 
 if settings.DEBUG:

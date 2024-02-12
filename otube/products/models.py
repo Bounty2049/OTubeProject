@@ -29,7 +29,6 @@ class Library(models.Model):
     image = models.ImageField(upload_to='products_images')
     video_url = models.URLField()
     created_timestamp = models.DateTimeField(auto_now_add=True)
-
     
     def __str__(self):
         return f'library for {self.user.username} | Product: {self.product.title}'

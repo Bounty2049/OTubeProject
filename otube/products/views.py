@@ -1,24 +1,41 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from products.models import Product, ProductCategory, Library
-from users.models import User
-from products.forms import UserCreationLesson
 from django.urls import reverse
+
 from rest_framework import generics, viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from rest_framework.views import APIView
+
+from products.forms import UserCreationLesson
 from products.serializers import ProductSerializer
+from products.models import Product, ProductCategory, Library
+from users.models import User
 
 
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
-
     @action(methods=['get'], detail=False)
     def category(self, request):
         cats = ProductCategory.objects.all()
         return Response({'categories': [cat.title for cat in cats]})
+
+
+class ProductAPI(APIView):
+
+    def get(self, request):
+        products = Product.objects.all()
+        serializer = ProductSerializer(products, many=True)
+        return Response({'products': serializer.data})
+
+    def post(self, request):
+        serializer = ProductSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+
+        return Response({'product': serializer.data})
 
 
 def index(request, category_id=None):
