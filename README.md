@@ -1,4 +1,6 @@
 # OTubeProject
+
+# About project
 🌟✨🎉 OTubeProject: Where Education Meets Social Connections! 🌟✨🎉
 
 ✨📚👩‍💻 Picture this: OTubeProject, a magical realm where stunning programming courses come to life! Explore a dazzling array of tutorials, lessons, and resources to empower your coding journey. Level up your skills and unlock the secrets of programming languages with the utmost joy and ease. 🌈💻🔓
@@ -8,3 +10,25 @@
 🏆🚀 Ready to climb the ranks? Tackle coding challenges and soar on the illustrious leaderboard. Who knows, your name could shine among the coding elite! Let competitive vibes ignite your passion and inspire you to reach new heights in your coding prowess. 🚀🏅🔝
 
 There you have it! A splendid combination of words and colorful stickers to make your description of OTubeProject truly pop! Enjoy sharing this attractive and captivating description with others!
+
+# Installation
+
+--> git clone https://github.com/Bounty2049/OTubeProject.git
+
+--> py/python3 -m venv .venv
+
+--> source .venv/bin/acitvate (macOS, linux)
+
+--> .venv/Scripts/activate (windows)
+
+--> pip install -r requirements.txt
+
+# Run 
+
+--> cd otube
+
+--> py/python3 manage.py makemigratoins
+
+--> py/python3 manage.py migrate
+
+--> py/python3 manage.py runserver
