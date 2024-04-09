@@ -13,8 +13,6 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 
 RUN mkdir /django/static && mkdir /django/media
 
-RUN cd ./otube
-
 EXPOSE 8000
 
 CMD [ "gunicorn", "otube.wsgi:application" ]
