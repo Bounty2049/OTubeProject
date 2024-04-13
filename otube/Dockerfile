@@ -11,6 +11,10 @@ RUN apt-get update && apt-get upgrade -y
 
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
-CMD [ "gunicorn", "otube.wsgi:application" ]
+RUN python manage.py collectstatic --noinput
+
+EXPOSE 8000
+
+CMD [ "gunicorn", "-b", "0.0.0.0:8000", "otube.wsgi:application" ]
 
 
